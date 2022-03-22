@@ -12,6 +12,8 @@ public class PlayerInputHandler : MonoBehaviour
     public bool rmbPressed = false;
     public bool lmbPressed = false;
 
+    public bool weaponSwitch = false;
+
 
     void Start()
     {
@@ -29,6 +31,8 @@ public class PlayerInputHandler : MonoBehaviour
         spacePressed = Input.GetKeyDown(KeyCode.Space);
         rmbPressed = Input.GetKey(KeyCode.Mouse1);
         lmbPressed = Input.GetKey(KeyCode.Mouse0);
+
+        weaponSwitch = Input.GetKeyDown(KeyCode.Alpha1);
     }
 
 
