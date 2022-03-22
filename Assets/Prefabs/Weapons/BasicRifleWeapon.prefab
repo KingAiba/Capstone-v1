@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7648554602208826144}
   - component: {fileID: 7648554602208826147}
-  - component: {fileID: 7648554603975446834}
+  - component: {fileID: 8726750290889722110}
   m_Layer: 2
   m_Name: BasicRifleWeapon
   m_TagString: Untagged
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48948dfe9d76b07488dacd46a7955fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7648554603975446834
+--- !u!114 &8726750290889722110
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,11 +88,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7648554602208826145}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab7bf3c7921faf848a3deb70f63f8795, type: 3}
+  m_Script: {fileID: 11500000, guid: f8fa2b4f8b1a54148af0ecb04299ba8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 25
-  bulletSpeed: 100
+  fireRate: 13
+  bulletSpeed: 110
   bulletDrop: 0.1
   bulletTTL: 3
   isFiring: 0
@@ -103,6 +103,11 @@ MonoBehaviour:
   tracerEffect: {fileID: 8324651991256483267, guid: 2366aca8703c2d94ea3d185592aa6f31,
     type: 3}
   bulletLst: []
+  rightHandGripIK: {fileID: 7648554602100227289}
+  leftHandGripIK: {fileID: 7648554603965361406}
+  weaponType: 0
+  bulletDamage: 5
+  bulletForce: 10
 --- !u!1 &7648554602538376671
 GameObject:
   m_ObjectHideFlags: 0

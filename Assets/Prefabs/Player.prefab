@@ -24,9 +24,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58591060}
-  m_LocalRotation: {x: -0.13340491, y: -0.000000017052585, z: -0.0000000022954154,
-    w: 0.9910616}
-  m_LocalPosition: {x: 0, y: -0.00000014305115, z: 0}
+  m_LocalRotation: {x: -0.13340484, y: -1e-45, z: -0, w: 0.9910616}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1323399409}
@@ -61,7 +60,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 41.99998
+    FieldOfView: 42
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -284,8 +283,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170371547}
-  m_LocalRotation: {x: -0.15112941, y: -3.5119072e-15, z: -5.369195e-16, w: 0.988514}
-  m_LocalPosition: {x: 0, y: -0.00000014305115, z: 0}
+  m_LocalRotation: {x: -0.15112935, y: -0.000000008504375, z: -0.0000000013001946,
+    w: 0.988514}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2103479678}
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 41.99998
+    FieldOfView: 42
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -407,9 +407,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439718133}
-  m_LocalRotation: {x: -0.13340493, y: -0.000000017058145, z: -0.0000000022943518,
-    w: 0.9910616}
-  m_LocalPosition: {x: 0, y: 1.1666665, z: -2.166665}
+  m_LocalRotation: {x: -0.13340485, y: -1.4312904e-11, z: 1.8861432e-12, w: 0.9910616}
+  m_LocalPosition: {x: 0, y: 1.1666666, z: -2.1666667}
   m_LocalScale: {x: 0.83333325, y: 0.83333325, z: 0.83333325}
   m_Children:
   - {fileID: 157850913}
@@ -442,7 +441,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 41.99998
+  field of view: 42
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -560,7 +559,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584622363}
-  m_LocalRotation: {x: -0.18944338, y: -0, z: 0, w: 0.9818917}
+  m_LocalRotation: {x: -0.18944335, y: -0, z: 0, w: 0.98189163}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -742,8 +741,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 776558778}
-  m_LocalRotation: {x: -0.11315658, y: -1e-45, z: -0, w: 0.9935772}
-  m_LocalPosition: {x: 0, y: -0.0000002861023, z: 0}
+  m_LocalRotation: {x: -0.113156505, y: 8.824738e-16, z: 1.00503166e-16, w: 0.9935772}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1772167154}
@@ -778,7 +777,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 41.99998
+    FieldOfView: 42
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -951,7 +950,7 @@ MonoBehaviour:
   weaponList: []
   currActiveWeapon: 0
   activeWeapon: {fileID: 0}
-  defaultHolsterTransform: {fileID: 0}
+  defaultHolsterTransform: {x: 0, y: 0, z: 0}
   weaponHolster: {fileID: 1472986560}
   weaponPivot: {fileID: 7076049476828988505}
   rightHandIK: {fileID: 2116788983}
@@ -1555,7 +1554,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696864559}
-  m_LocalRotation: {x: -0.15598354, y: -0.0021910514, z: -0.00034600403, w: 0.98775715}
+  m_LocalRotation: {x: -0.15598337, y: -0.0021910516, z: -0.00034600368, w: 0.98775727}
   m_LocalPosition: {x: 0.061, y: 1.12, z: 0.157}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2013,7 +2012,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1967344903}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.1666665, z: -2.166665}
+  m_LocalPosition: {x: 0, y: 1.1666666, z: -2.1666667}
   m_LocalScale: {x: 0.83333325, y: 0.83333325, z: 0.83333325}
   m_Children:
   - {fileID: 776558780}
@@ -2044,7 +2043,7 @@ MonoBehaviour:
   m_Follow: {fileID: 9133734082226003176}
   m_CommonLens: 1
   m_Lens:
-    FieldOfView: 41.99998
+    FieldOfView: 42
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -4825,6 +4824,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53539f6f29c6a894497bfa3dd568eb0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
+  currHealth: 0
+  isDead: 0
   pInputHandler: {fileID: 0}
   playerCam: {fileID: 439718135}
   maxSprintSpeed: 8
@@ -4904,8 +4906,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RigLayers:
-  - m_Rig: {fileID: 1248699367}
-    m_Active: 1
   - m_Rig: {fileID: 843814131}
     m_Active: 1
   - m_Rig: {fileID: 4753473188514716414}
@@ -4913,6 +4913,8 @@ MonoBehaviour:
   - m_Rig: {fileID: 1696697439}
     m_Active: 1
   - m_Rig: {fileID: 284423688}
+    m_Active: 1
+  - m_Rig: {fileID: 1248699367}
     m_Active: 1
   m_Effectors:
   - m_Transform: {fileID: 9133734082226003176}
@@ -5106,6 +5108,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicPistolWeapon
       objectReference: {fileID: 0}
+    - target: {fileID: 2110663037148893651, guid: c3df98e72d916c546bc30b6d030d7916,
+        type: 3}
+      propertyPath: bulletDrop
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110663037148893651, guid: c3df98e72d916c546bc30b6d030d7916,
+        type: 3}
+      propertyPath: rayCastDestination
+      value: 
+      objectReference: {fileID: 1940748571}
     - target: {fileID: 3764093308842111718, guid: c3df98e72d916c546bc30b6d030d7916,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5314,6 +5326,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 178994476}
     - target: {fileID: 7648554603975446834, guid: 19910fc342ecfa54bbff49385a8ef968,
+        type: 3}
+      propertyPath: rayCastDestination
+      value: 
+      objectReference: {fileID: 1940748571}
+    - target: {fileID: 8726750290889722110, guid: 19910fc342ecfa54bbff49385a8ef968,
         type: 3}
       propertyPath: rayCastDestination
       value: 

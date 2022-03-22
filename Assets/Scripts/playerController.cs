@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerController : MonoBehaviour
+public class playerController : EntityManager
 {
     public PlayerInputHandler pInputHandler;
     private Rigidbody playerRB;
@@ -32,18 +32,13 @@ public class playerController : MonoBehaviour
     public OnRollDelegate OnRoll;
 
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         pInputHandler = GetComponent<PlayerInputHandler>();
         playerRB = GetComponent<Rigidbody>();
     }
 
-    
-    void Update()
-    {
-        
-        
-    }
 
     private void FixedUpdate()
     {

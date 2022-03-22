@@ -23,8 +23,8 @@ public class WeaponRayCastScript : MonoBehaviour
     public ParticleSystem muzzleFlash;
     public ParticleSystem hiteffect;
 
-    private Ray ray;
-    private RaycastHit hitInfo;
+    protected Ray ray;
+    protected RaycastHit hitInfo;
     public Transform rayCastDestination;
 
     public TrailRenderer tracerEffect;
@@ -106,6 +106,7 @@ public class WeaponRayCastScript : MonoBehaviour
             //Debug.Log(hiteffect.transform.position);
             bullet.tracer.transform.position = hitInfo.point;
             bullet.time = bulletTTL;
+            OnEnemyHitProcedure(hitInfo.collider);
         }
         else
         {
@@ -144,5 +145,9 @@ public class WeaponRayCastScript : MonoBehaviour
         canFire = false;
         yield return new WaitForSeconds(1/fireRate);
         canFire = true;
+    }
+    public virtual void OnEnemyHitProcedure(Collider hitCollider)
+    {
+
     }
 }

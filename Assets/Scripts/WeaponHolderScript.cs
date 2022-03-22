@@ -25,7 +25,7 @@ public class WeaponHolderScript : MonoBehaviour
     }
 
     
-    void Update()
+    void LateUpdate()
     {
         UpdateWeapons();
     }
