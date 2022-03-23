@@ -2422,7 +2422,7 @@ GameObject:
   - component: {fileID: 606596945}
   m_Layer: 0
   m_Name: EnemySolider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2509,6 +2509,7 @@ MonoBehaviour:
   blinkIntensity: 10
   blinkDuration: 1.5
   blinkTimer: 0
+  initialState: 0
 --- !u!114 &606596943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2787,7 +2788,7 @@ PrefabInstance:
     - target: {fileID: 9205987088259913172, guid: 281a5f62d02523743b1df58906ef1f13,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000022888184
+      value: -0.000011444092
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 281a5f62d02523743b1df58906ef1f13, type: 3}

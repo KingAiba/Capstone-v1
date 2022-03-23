@@ -5,40 +5,26 @@ using UnityEngine;
 
 public class EnemyController : EntityManager
 {
-    public NavMeshAgent enemyAgent;
-    public GameObject target;
+    public NavMeshAgent enemyNavAgent;
+    public GameObject playerTarget;
 
-    public bool canPath = true;
+    /*    public float blinkIntensity;
+        public float blinkDuration;
+        public float blinkTimer = 0f;
+        SkinnedMeshRenderer skinnedMeshRenderer;*/
 
-    public float pathingCooldown = 3f;
-    public float enemyRange = 2f;
+    EnemyAnimHandler enemyAnimHandler;
+    public Transform lookAtTarget;
+    public float lookAtSpeed = 2f;
 
-    public float blinkIntensity;
-    public float blinkDuration;
-    public float blinkTimer = 0f;
+    public AIStateMachine stateMachine;
+    public AIStateID initialState;
+    public AIStateID currState;
+    public AiAgentParameters aiAgentParam;
 
-    SkinnedMeshRenderer skinnedMeshRenderer;
-
-    public delegate void OnDamageDelegate(float percent);
+    public delegate void OnDamageDelegate(float percent = 0);
     public OnDamageDelegate OnDamage;
-    public void SetDestinationToTarget()
-    {
-        if(canPath)
-        {
-            float dist = (target.transform.position - enemyAgent.destination).sqrMagnitude;
-            if(dist > enemyRange * enemyRange)
-            {
-                enemyAgent.SetDestination(target.transform.position);
-            }
-            StartCoroutine(PathingCooldDownTimer());
-        }
-    }
-    IEnumerator PathingCooldDownTimer()
-    {
-        canPath = false;
-        yield return new WaitForSeconds(pathingCooldown);
-        canPath = true;
-    }
+
 
     public override void TakeDamage(float val, Vector3 dir)
     {
@@ -50,15 +36,15 @@ public class EnemyController : EntityManager
     public override void Die()
     {
         base.Die();
-        enemyAgent.isStopped = true;
+        stateMachine.ChangeState(AIStateID.Die);
     }
 
     public void StartNavMeshAgent()
     {
-        enemyAgent.isStopped = false;
+        enemyNavAgent.isStopped = false;
     }
 
-    private void BlinkOnDamage()
+/*    private void BlinkOnDamage()
     {
         if(blinkTimer >= 0)
         {
@@ -67,7 +53,7 @@ public class EnemyController : EntityManager
             float intensity = (val * blinkIntensity) + 1f;
             skinnedMeshRenderer.material.color = Color.white * intensity;
         }
-    }
+    }*/
 
     private float GetPercentHP()
     {
@@ -76,14 +62,34 @@ public class EnemyController : EntityManager
     protected override void Start()
     {
         base.Start();
-        target = GameObject.Find("Player");
-        skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+        playerTarget = GameObject.FindGameObjectWithTag("Player");
+
+        enemyAnimHandler = GetComponent<EnemyAnimHandler>();
+        OnDamage += enemyAnimHandler.PlayDamageAnim;
+        //OnEntityDeath += enemyAnimHandler.PlayDamageAnim;
+        //skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+
+        stateMachine = new AIStateMachine(this);
+        stateMachine.AddState(new AIChasePlayerState());
+        stateMachine.AddState(new AIDeathState());
+        stateMachine.AddState(new AIIdleState());
+        stateMachine.AddState(new AIRangedAttackState());
+        stateMachine.ChangeState(initialState);
     }
 
     void Update()
     {
-        SetDestinationToTarget();
-        //BlinkOnDamage();
+        stateMachine.Update();
+    }
+
+    private void LateUpdate()
+    {
+        enemyAnimHandler.PlayAgentMovement(enemyNavAgent.velocity.magnitude);
+    }
+
+    private void OnDestroy()
+    {
+        OnDamage -= enemyAnimHandler.PlayDamageAnim;
     }
 
 

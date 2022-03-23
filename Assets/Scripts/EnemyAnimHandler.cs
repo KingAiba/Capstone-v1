@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyAnimHandler : MonoBehaviour
 {
-    public EnemyController enemyController;
+    //public EnemyController enemyController;
     public Animator enemyAnimator;
 
     public void PlayAgentMovement(float mag)
@@ -13,13 +13,28 @@ public class EnemyAnimHandler : MonoBehaviour
         enemyAnimator.SetFloat("Speed", mag);
     }
 
+    public void ChangeAimAnim(bool isAiming)
+    {
+        enemyAnimator.SetBool("Aiming", isAiming);
+    }
+
+    public void PlayFireAnim()
+    {
+        enemyAnimator.SetTrigger("Attack");
+    }
+
+    public void PlayDamageAnim(float percent)
+    {
+        enemyAnimator.SetTrigger("Damage");
+    }
+
     private void Start()
     {
-        enemyController = GetComponent<EnemyController>();
+        //enemyController = GetComponent<EnemyController>();
     }
 
     private void LateUpdate()
     {
-        PlayAgentMovement(enemyController.enemyAgent.velocity.magnitude);
+        //PlayAgentMovement(enemyController.enemyNavAgent.velocity.magnitude);
     }
 }
