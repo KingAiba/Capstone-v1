@@ -36,6 +36,8 @@ public class WeaponRayCastScript : MonoBehaviour
 
     public WeaponType weaponType = WeaponType.Primary;
 
+    public LayerMask rayCastLayer;
+
     public Bullet CreateBullet(Vector3 position, Vector3 velocity)
     {
         Bullet bullet = new Bullet(position, velocity, Instantiate(tracerEffect, position, Quaternion.identity));
@@ -97,7 +99,7 @@ public class WeaponRayCastScript : MonoBehaviour
 
         float rayDistance = (dir).magnitude;
 
-        if (Physics.Raycast(ray, out hitInfo, rayDistance))
+        if (Physics.Raycast(ray, out hitInfo, rayDistance, rayCastLayer))
         {
             //Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 1.0f);
             hiteffect.transform.position = hitInfo.point;

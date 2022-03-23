@@ -24,11 +24,13 @@ public class AIIdleState : AIState
         float dist = Vector3.Distance(agent.playerTarget.transform.position, agent.transform.position);
         if(dist <= agent.aiAgentParam.StoppingDistance)
         {
-           // agent.enemyNavAgent.updateRotation = true;
-
             Vector3 dir = agent.playerTarget.transform.position - agent.transform.position;
             agent.transform.rotation = Quaternion.Slerp(agent.transform.rotation, Quaternion.LookRotation(dir), agent.aiAgentParam.rotationSpeed);
-            //agent.enemyNavAgent.updateRotation = false;
+
+            if (dist <= agent.aiAgentParam.shootingRange)
+            {
+                agent.stateMachine.ChangeState(AIStateID.RangeAttack);
+            }
         }
         else
         {

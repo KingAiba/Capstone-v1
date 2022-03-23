@@ -13,7 +13,10 @@ public class EnemyController : EntityManager
         public float blinkTimer = 0f;
         SkinnedMeshRenderer skinnedMeshRenderer;*/
 
-    EnemyAnimHandler enemyAnimHandler;
+    public EnemyAnimHandler enemyAnimHandler;
+
+    public AIWeapon agentWeapon;
+
     public Transform lookAtTarget;
     public float lookAtSpeed = 2f;
 
@@ -59,6 +62,12 @@ public class EnemyController : EntityManager
     {
         return currHealth / maxHealth;
     }
+
+    IEnumerator EnemyCooldownRoutine(float cdTime, bool givenBool)
+    {
+        yield return new WaitForSeconds(cdTime);
+
+    }
     protected override void Start()
     {
         base.Start();
@@ -84,7 +93,9 @@ public class EnemyController : EntityManager
 
     private void LateUpdate()
     {
+        agentWeapon.UpdateBullets();
         enemyAnimHandler.PlayAgentMovement(enemyNavAgent.velocity.magnitude);
+        lookAtTarget.position = Vector3.Lerp(lookAtTarget.position, playerTarget.transform.position + new Vector3(0, 0.5f, 0), lookAtSpeed * Time.deltaTime);
     }
 
     private void OnDestroy()

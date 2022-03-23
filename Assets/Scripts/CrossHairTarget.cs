@@ -8,6 +8,7 @@ public class CrossHairTarget : MonoBehaviour
     Ray ray;
     RaycastHit hitInfo;
 
+    public GameObject player;
     public float maxRange = 1000.0f;
    
     void Start()
@@ -27,7 +28,7 @@ public class CrossHairTarget : MonoBehaviour
         }
         else
         {
-            transform.position = ray.origin + ray.direction * maxRange;
+            transform.position = (ray.origin + ray.direction) * maxRange;
         }
 
         
