@@ -21,12 +21,18 @@ public class Doors : MonoBehaviour
     public bool isConnected = false;
     //public bool isOpen = false;
 
+    /// <summary>
+    /// Enable/Disable door trigger collider which checks if player is nearby
+    /// </summary>
+    /// <param name="isEnabled"></param>
     public void SetDoorTriggerEnable(bool isEnabled)
     {
         isDoorTriggerEnabled = isEnabled;
         doorTrigger.gameObject.SetActive(isEnabled);
     }
-
+    /// <summary>
+    /// Toggle door open/close
+    /// </summary>
     public void OpenDoor()
     {
         if(isDoorTriggerEnabled && isConnected)
@@ -34,7 +40,9 @@ public class Doors : MonoBehaviour
             doorAnimator.SetBool("character_nearby", !doorAnimator.GetBool("character_nearby"));
         }
     }
-
+    /// <summary>
+    /// Initialize door adn get components
+    /// </summary>
     public void InitializeDoor()
     {
         doorAnimator = GetComponent<Animator>();
@@ -43,13 +51,17 @@ public class Doors : MonoBehaviour
         doorTrigger.OnDoorTriggerEnter += OpenDoor;
         doorTrigger.OnDoorTriggerExit += OpenDoor;
     }
-
+    /// <summary>
+    /// Called on destroy to unsubscribe delegates
+    /// </summary>
     public void DestroyDoor()
     {
         doorTrigger.OnDoorTriggerEnter -= OpenDoor;
         doorTrigger.OnDoorTriggerExit -= OpenDoor;
     }
-
+    /// <summary>
+    /// Align spawned connector to current door
+    /// </summary>
     public void AlignConnectorToDoor()
     {
         Transform c1 = connectorConnectionPoints[0];
@@ -69,7 +81,9 @@ public class Doors : MonoBehaviour
         //connector.transform.rotation = rot;
         connector.transform.position = transform.position - (c1.position - connector.transform.position);
     }
-
+    /// <summary>
+    /// Alight spawned room to other end of connector
+    /// </summary>
     public void AlignNewRoomToConnector()
     {
         Transform c2 = connectorConnectionPoints[1];
@@ -84,7 +98,11 @@ public class Doors : MonoBehaviour
         connectedDoor.isConnected = true;
         connectedDoor.SetDoorTriggerEnable(true);
     }
-
+    /// <summary>
+    /// Spawn new room and connect it to this door
+    /// </summary>
+    /// <param name="mapGenerator"></param>
+    /// <returns>spawned door</returns>
     public Rooms AttachRoom(MapGenerator mapGenerator)
     {
         _mapGenerator = mapGenerator;
@@ -112,7 +130,11 @@ public class Doors : MonoBehaviour
 
         return nextRoom;
     }
-
+    /// <summary>
+    /// Initialization function
+    /// </summary>
+    /// <param name="prevDoor"></param>
+    /// <param name="prevRoom"></param>
     public void InitializeConnectedDoor(Doors prevDoor, Rooms prevRoom)
     {
         isConnected = true;
@@ -120,7 +142,9 @@ public class Doors : MonoBehaviour
         connectedDoor = prevDoor;
         nextRoom = prevRoom;
     }
-
+    /// <summary>
+    /// Destruction function
+    /// </summary>
     public void DestroyAttachedRoom()
     {
         Destroy(connector.gameObject);

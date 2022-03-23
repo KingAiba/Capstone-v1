@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58591060}
-  m_LocalRotation: {x: -0.13340484, y: -1e-45, z: -0, w: 0.9910616}
+  m_LocalRotation: {x: -0.13340482, y: 1e-45, z: -0, w: 0.9910616}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 42
+    FieldOfView: 41.99997
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -283,8 +283,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170371547}
-  m_LocalRotation: {x: -0.15112935, y: -0.000000008504375, z: -0.0000000013001946,
-    w: 0.988514}
+  m_LocalRotation: {x: -0.15112932, y: -1e-45, z: -0, w: 0.988514}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -320,7 +319,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 42
+    FieldOfView: 41.99997
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -407,7 +406,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439718133}
-  m_LocalRotation: {x: -0.13340485, y: -1.4312904e-11, z: 1.8861432e-12, w: 0.9910616}
+  m_LocalRotation: {x: -0.13340484, y: 0.0000000019522164, z: -2.6278504e-10, w: 0.9910616}
   m_LocalPosition: {x: 0, y: 1.1666666, z: -2.1666667}
   m_LocalScale: {x: 0.83333325, y: 0.83333325, z: 0.83333325}
   m_Children:
@@ -441,7 +440,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 42
+  field of view: 41.99997
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -559,7 +558,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584622363}
-  m_LocalRotation: {x: -0.18944335, y: -0, z: 0, w: 0.98189163}
+  m_LocalRotation: {x: -0.18944338, y: -0, z: 0, w: 0.9818917}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -741,7 +740,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 776558778}
-  m_LocalRotation: {x: -0.113156505, y: 8.824738e-16, z: 1.00503166e-16, w: 0.9935772}
+  m_LocalRotation: {x: -0.1131565, y: -0.000000007402727, z: -8.430816e-10, w: 0.9935772}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -777,7 +776,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 42
+    FieldOfView: 41.99997
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1985,6 +1984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5aaf4fd15524f45b06afde626ddb8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   maxRange: 1000
 --- !u!1 &1967344903
 GameObject:
@@ -2043,7 +2043,7 @@ MonoBehaviour:
   m_Follow: {fileID: 9133734082226003176}
   m_CommonLens: 1
   m_Lens:
-    FieldOfView: 42
+    FieldOfView: 41.99997
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -5103,10 +5103,35 @@ PrefabInstance:
       propertyPath: rayCastDestination
       value: 
       objectReference: {fileID: 1940748571}
+    - target: {fileID: 403084837378649742, guid: c3df98e72d916c546bc30b6d030d7916,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 403326107911136850, guid: c3df98e72d916c546bc30b6d030d7916,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 403582499526155692, guid: c3df98e72d916c546bc30b6d030d7916,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 403597957582447020, guid: c3df98e72d916c546bc30b6d030d7916,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1395018352962427171, guid: c3df98e72d916c546bc30b6d030d7916,
         type: 3}
       propertyPath: m_Name
       value: BasicPistolWeapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395018352962427171, guid: c3df98e72d916c546bc30b6d030d7916,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2110663037148893651, guid: c3df98e72d916c546bc30b6d030d7916,
         type: 3}
@@ -5118,6 +5143,11 @@ PrefabInstance:
       propertyPath: rayCastDestination
       value: 
       objectReference: {fileID: 1940748571}
+    - target: {fileID: 2110663037148893651, guid: c3df98e72d916c546bc30b6d030d7916,
+        type: 3}
+      propertyPath: rayCastLayer.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3764093308842111718, guid: c3df98e72d916c546bc30b6d030d7916,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5223,6 +5253,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6744612282264599819, guid: c3df98e72d916c546bc30b6d030d7916,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744612282430256743, guid: c3df98e72d916c546bc30b6d030d7916,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744612282457263570, guid: c3df98e72d916c546bc30b6d030d7916,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744612282555560161, guid: c3df98e72d916c546bc30b6d030d7916,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744612282555560163, guid: c3df98e72d916c546bc30b6d030d7916,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744612282555560165, guid: c3df98e72d916c546bc30b6d030d7916,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744612282555560167, guid: c3df98e72d916c546bc30b6d030d7916,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744612282555560173, guid: c3df98e72d916c546bc30b6d030d7916,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744612282727202500, guid: c3df98e72d916c546bc30b6d030d7916,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3df98e72d916c546bc30b6d030d7916, type: 3}
 --- !u!4 &4306378101433203622 stripped
@@ -5250,6 +5325,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7076049476828988505}
     m_Modifications:
+    - target: {fileID: 1528992401525759337, guid: 19910fc342ecfa54bbff49385a8ef968,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529252515828536757, guid: 19910fc342ecfa54bbff49385a8ef968,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529293872076416663, guid: 19910fc342ecfa54bbff49385a8ef968,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1529300542094809751, guid: 19910fc342ecfa54bbff49385a8ef968,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7648554602208826144, guid: 19910fc342ecfa54bbff49385a8ef968,
         type: 3}
       propertyPath: m_RootOrder
@@ -5335,6 +5430,11 @@ PrefabInstance:
       propertyPath: rayCastDestination
       value: 
       objectReference: {fileID: 1940748571}
+    - target: {fileID: 8726750290889722110, guid: 19910fc342ecfa54bbff49385a8ef968,
+        type: 3}
+      propertyPath: rayCastLayer.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19910fc342ecfa54bbff49385a8ef968, type: 3}
 --- !u!4 &2216661 stripped
