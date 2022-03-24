@@ -15,7 +15,12 @@ public class UIHealthBar : MonoBehaviour
 
     public void UpdatePosition()
     {
+        Vector3 dir = (target.position - Camera.main.transform.position).normalized;
+        bool isBehind = Vector3.Dot(dir, Camera.main.transform.transform.forward) <= 0.0f;
+        foreground.enabled = !isBehind;
+        background.enabled = !isBehind;
         transform.position = Camera.main.WorldToScreenPoint(target.position + offset);
+
     }
 
     public void UpdateHealthBarFill(float percent)

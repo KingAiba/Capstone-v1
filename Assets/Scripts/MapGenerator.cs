@@ -22,6 +22,7 @@ public class MapGenerator : MonoBehaviour
 
     public bool isMapGenerating = false;
     public bool isMapReady = false;
+    public bool disableProcedureComplete = false;
 
     public bool canGenRooms = true;
     public float genCooldown = 2f;
@@ -55,6 +56,7 @@ public class MapGenerator : MonoBehaviour
                     if (door.isDoorTriggerEnabled && !door.isConnected)
                     {
                         door.currRoom = currRoom;
+
                         Rooms newRoom = door.AttachRoom(this);
 
                         yield return new WaitForFixedUpdate();
@@ -71,6 +73,7 @@ public class MapGenerator : MonoBehaviour
                             
                             roomQueue.Enqueue(newRoom);
                             currentMapRooms.Add(newRoom);
+
                         }
 
                     }
@@ -93,9 +96,20 @@ public class MapGenerator : MonoBehaviour
 
     public void MapCompleted()
     {
-        if (isMapReady && !isMapGenerating)
+        if (isMapReady && !isMapGenerating && !disableProcedureComplete)
         {
             OnMapGenerationCompleted?.Invoke();
+            if(!disableProcedureComplete)
+            {
+                foreach(Rooms room in currentMapRooms)
+                {
+                    if (!room.isSpawnRoom)
+                    {
+                        room.gameObject.SetActive(false);
+                    }
+                }
+                disableProcedureComplete = true;
+            }
         }      
     }
 

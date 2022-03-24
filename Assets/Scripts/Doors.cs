@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Doors : MonoBehaviour
 {
+    public Rooms prevRoom = null;
     public Rooms currRoom;
-    public Rooms nextRoom;
+    public Rooms nextRoom = null;
     Doors connectedDoor;
 
     public MapGenerator _mapGenerator;
@@ -52,8 +53,11 @@ public class Doors : MonoBehaviour
         doorTrigger = GetComponentInChildren<DoorTrigger>();
         SetDoorTriggerEnable(true);
         doorTrigger.OnDoorTriggerEnter += OpenDoor;
+        doorTrigger.OnDoorTriggerEnter += EnabledNextRoom;
+
         doorTrigger.OnDoorTriggerExit += OpenDoor;
         doorTrigger.OnDoorTriggerExit += DoorTriggerExit;
+        
     }
     /// <summary>
     /// Called on destroy to unsubscribe delegates
@@ -61,6 +65,8 @@ public class Doors : MonoBehaviour
     public void DestroyDoor()
     {
         doorTrigger.OnDoorTriggerEnter -= OpenDoor;
+        doorTrigger.OnDoorTriggerEnter -= EnabledNextRoom;
+
         doorTrigger.OnDoorTriggerExit -= OpenDoor;
     }
     /// <summary>
@@ -102,6 +108,7 @@ public class Doors : MonoBehaviour
         // set next room position to connector point and then subtract distance between door and room
         nextRoom.transform.position =  c2.position - (connectedDoor.transform.position - nextRoom.transform.position);
 
+        connectedDoor.prevRoom = currRoom;
         connectedDoor.isConnected = true;
         connectedDoor.SetDoorTriggerEnable(true);
     }
@@ -142,12 +149,12 @@ public class Doors : MonoBehaviour
     /// </summary>
     /// <param name="prevDoor"></param>
     /// <param name="prevRoom"></param>
-    public void InitializeConnectedDoor(Doors prevDoor, Rooms prevRoom)
+    public void InitializeConnectedDoor(Doors prevDoor, Rooms PrevRoom)
     {
         isConnected = true;
         SetDoorTriggerEnable(true);
         connectedDoor = prevDoor;
-        nextRoom = prevRoom;
+        prevRoom = PrevRoom;
     }
     /// <summary>
     /// Destruction function
@@ -169,6 +176,33 @@ public class Doors : MonoBehaviour
         OnPlayerEnter?.Invoke();
     }
 
+    public void EnabledNextRoom()
+    {
+        if(nextRoom != null)
+        {
+            if(nextRoom.gameObject.activeSelf)
+            {
+                nextRoom.gameObject.SetActive(false);
+            }
+            else
+            {
+                nextRoom.gameObject.SetActive(true);
+            }
+            
+        }
+        else if(prevRoom != null)
+        {
+            if (prevRoom.gameObject.activeSelf)
+            {
+                prevRoom.gameObject.SetActive(false);
+            }
+            else
+            {
+                prevRoom.gameObject.SetActive(true);
+            }
+            
+        }
+    }
 
     private void Awake()
     {
