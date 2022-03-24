@@ -32,34 +32,45 @@ public class Rooms : MonoBehaviour
     public bool isBossRoom = false;
 
     public NavMeshSurface roomNavMeshSurface;
+    public roomSpawner currRoomSpawner;
 
-    public void InitializeRoom()
+    public void InitializeRoom(bool SetSpawn)
     {
         //doorList = new List<Doors>(GetComponentsInChildren<Doors>());
+        currRoomSpawner = GetComponent<roomSpawner>();
+
+        if(SetSpawn)
+        {
+            SetAsSpawnPoint();
+        }
+        else
+        {
+            SetAsNormalRoom();
+        }
+
         foreach(Doors door in doorList)
         {
             door.currRoom = this;
+            if(!isSpawnRoom)
+            {
+                door.OnPlayerEnter += ActivateSpawner;
+            }
+            
         }
-    }
-
-    public Doors SetAsNormalRoom()
-    {
-        isSpawnRoom = false;
-        isBossRoom = false;
-
-        return doorList[0];
     }
 
     public void SetAsSpawnPoint()
     {
+        currRoomSpawner.isActive = false;
+        currRoomSpawner.enabled = false;
         isSpawnRoom = true;
         isBossRoom = false;
 
         roomDepth = 0;
 
-        for(int i = 0; i < doorList.Count; i++)
+        for (int i = 0; i < doorList.Count; i++)
         {
-            if(i == 0)
+            if (i == 0)
             {
                 doorList[i].SetDoorTriggerEnable(true);
             }
@@ -68,6 +79,33 @@ public class Rooms : MonoBehaviour
                 doorList[i].SetDoorTriggerEnable(false);
             }
         }
+    }
+
+    private void ActivateSpawner()
+    {
+        currRoomSpawner.GetNextWave();
+        currRoomSpawner.isActive = true;
+    }
+
+    private void DisableSpawner()
+    {
+        currRoomSpawner.enabled = false;
+    }
+
+    public void SetAsNormalRoom()
+    {
+        isSpawnRoom = false;
+        isBossRoom = false;
+        currRoomSpawner.OnRoomComplete += DisableSpawner;
+    }
+
+    public Doors GetRoomDoor(int index)
+    {
+        if(index < doorList.Count)
+        {
+            return doorList[index];
+        }
+        return doorList[0];
     }
 
     public List<Doors> GetRoomDoors()
@@ -107,7 +145,7 @@ public class Rooms : MonoBehaviour
 
     public void RebuildNavMesh()
     {
-        roomNavMeshSurface.BuildNavMesh();
+        //roomNavMeshSurface.BuildNavMesh();
     }
 
     public void RoomValidationProcedure(MapGenerator mg)
@@ -119,7 +157,7 @@ public class Rooms : MonoBehaviour
 
     void Start()
     {
-        InitializeRoom();
+        //InitializeRoom();
     }
 
     void Update()
@@ -131,5 +169,11 @@ public class Rooms : MonoBehaviour
     {
         mapGenerator.OnMapGenerationCompleted -= DeactivateValidators;
         mapGenerator.OnMapGenerationCompleted -= RebuildNavMesh;
+        currRoomSpawner.OnRoomComplete -= DisableSpawner;
+
+        foreach (Doors door in doorList)
+        {
+            door.OnPlayerEnter -= ActivateSpawner;
+        }
     }
 }

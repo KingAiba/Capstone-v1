@@ -25,6 +25,8 @@ public class EnemyController : EntityManager
     public AIStateID currState;
     public AiAgentParameters aiAgentParam;
 
+    public roomSpawner ownerRoom;
+
     public delegate void OnDamageDelegate(float percent = 0);
     public OnDamageDelegate OnDamage;
 
@@ -40,6 +42,7 @@ public class EnemyController : EntityManager
     {
         base.Die();
         stateMachine.ChangeState(AIStateID.Die);
+        Destroy(gameObject, 3f);
     }
 
     public void StartNavMeshAgent()
@@ -100,6 +103,7 @@ public class EnemyController : EntityManager
 
     private void OnDestroy()
     {
+        ownerRoom.RemoveFromList(gameObject);
         OnDamage -= enemyAnimHandler.PlayDamageAnim;
     }
 

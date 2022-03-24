@@ -2714,7 +2714,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466470082743683471}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5827093, y: 0.19205618, z: 30.556252}
+  m_LocalPosition: {x: 0.5776655, y: 0, z: 53.78537}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 1466470082743587921}
@@ -2791,6 +2791,7 @@ MonoBehaviour:
   initialState: 0
   currState: 0
   aiAgentParam: {fileID: 11400000, guid: ebfb4e58ffae579409a2cb7f0017e2c4, type: 2}
+  ownerRoom: {fileID: 0}
 --- !u!114 &606596943
 MonoBehaviour:
   m_ObjectHideFlags: 0

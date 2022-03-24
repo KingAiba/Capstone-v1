@@ -19,6 +19,9 @@ public class Doors : MonoBehaviour
 
     public bool isDoorTriggerEnabled = false;
     public bool isConnected = false;
+
+    public delegate void OnPlayerEnterDelegate();
+    public OnPlayerEnterDelegate OnPlayerEnter;
     //public bool isOpen = false;
 
     /// <summary>
@@ -50,6 +53,7 @@ public class Doors : MonoBehaviour
         SetDoorTriggerEnable(true);
         doorTrigger.OnDoorTriggerEnter += OpenDoor;
         doorTrigger.OnDoorTriggerExit += OpenDoor;
+        doorTrigger.OnDoorTriggerExit += DoorTriggerExit;
     }
     /// <summary>
     /// Called on destroy to unsubscribe delegates
@@ -87,11 +91,14 @@ public class Doors : MonoBehaviour
     public void AlignNewRoomToConnector()
     {
         Transform c2 = connectorConnectionPoints[1];
-        connectedDoor = nextRoom.SetAsNormalRoom();
+        nextRoom.InitializeRoom(false);
+        connectedDoor = nextRoom.GetRoomDoor(0);
+
         // Rotate room by angel needed to align door to connector point
         Quaternion rot = connectedDoor.transform.rotation * Quaternion.Inverse(c2.rotation);
         rot = rot * nextRoom.transform.rotation;
         nextRoom.transform.rotation = Quaternion.Inverse(rot);
+
         // set next room position to connector point and then subtract distance between door and room
         nextRoom.transform.position =  c2.position - (connectedDoor.transform.position - nextRoom.transform.position);
 
@@ -157,6 +164,11 @@ public class Doors : MonoBehaviour
         SetDoorTriggerEnable(false);
     }
 
+    public void DoorTriggerExit()
+    {
+        OnPlayerEnter?.Invoke();
+    }
+
 
     private void Awake()
     {
@@ -166,8 +178,6 @@ public class Doors : MonoBehaviour
     {
         
     }
-
-
 
     private void OnDestroy()
     {

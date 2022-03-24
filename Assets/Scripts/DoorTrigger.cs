@@ -13,8 +13,7 @@ public class DoorTrigger : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            OnDoorTriggerEnter?.Invoke();
-            
+            OnDoorTriggerEnter?.Invoke();            
         }
     }
 

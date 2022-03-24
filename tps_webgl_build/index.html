@@ -56,15 +56,16 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/tps_webgl_build.loader.js";
+      var loaderUrl = buildUrl + "/tps_webgl_build.asm.loader.js";
       var config = {
         dataUrl: buildUrl + "/tps_webgl_build.data.gz",
-        frameworkUrl: buildUrl + "/tps_webgl_build.framework.js.gz",
-        codeUrl: buildUrl + "/tps_webgl_build.wasm.gz",
+        frameworkUrl: buildUrl + "/tps_webgl_build.asm.framework.js.gz",
+        codeUrl: buildUrl + "/tps_webgl_build.asm.js.gz",
+        memoryUrl: buildUrl + "/tps_webgl_build.asm.mem.gz",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "ThirdPersonGamePractice",
-        productVersion: "0.1",
+        productVersion: "1.0",
         showBanner: unityShowBanner,
       };
 

@@ -105,6 +105,7 @@ public class MapGenerator : MonoBehaviour
             .Find(room => room.GetComponent<Rooms>().roomType == RoomType.Spawn))
             .GetComponent<Rooms>();
         generatedRoom.mapGenerator = this;
+        generatedRoom.InitializeRoom(true);
         generatedRoom.SetAsSpawnPoint();
 
         return generatedRoom;
