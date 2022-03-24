@@ -7,6 +7,17 @@ public class Weapons : WeaponRayCastScript
     public float bulletDamage = 5f;
     public float bulletForce = 10f;
 
+    public float reloadTime = 1f;
+    public float currReloadTimer = 0f;
+
+    public int currMagAmount = 10;
+    public int maxMagSize = 10;
+
+    public bool isReloading = false;
+
+    public delegate void OnReloadDelegate();
+    public OnReloadDelegate OnReload;
+
     public override void OnEnemyHitProcedure(Collider hitCollider)
     {
         base.OnEnemyHitProcedure(hitCollider);
@@ -23,4 +34,46 @@ public class Weapons : WeaponRayCastScript
             hitbox.OnRayCastHit(this, this.ray.direction);
         }
     }
+
+    protected override void FireBullet()
+    {
+        if(!isReloading)
+        {
+            currMagAmount--;
+            base.FireBullet();
+
+            if (currMagAmount <= 0)
+            {
+                Reload();
+            }
+
+        }
+
+    }
+
+    public virtual void Reload()
+    {
+        isReloading = true;
+        OnReload?.Invoke();
+    }
+    public virtual void ReloadUpdate()
+    {
+        if(isReloading)
+        {
+            currReloadTimer += Time.deltaTime;
+            if(currReloadTimer >= reloadTime)
+            {
+                isReloading = false;
+                currReloadTimer = 0f;
+                currMagAmount = maxMagSize;
+            }
+        }
+    }
+
+    public override void UpdateBullets()
+    {
+        base.UpdateBullets();
+        ReloadUpdate();
+    }
+
 }

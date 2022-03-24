@@ -18,25 +18,6 @@ public class PlayerAimScript : MonoBehaviour
 
     public Rig HandIKLayer;
 
-
-    void Start()
-    {
-        pInput = GetComponent<PlayerInputHandler>();
-
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        playerRigBuilder = GetComponent<RigBuilder>();
-        playerWeaponHolder = GetComponentInChildren<WeaponHolderScript>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        SwitchWeapon();
-        AimWeapon();
-        FireWeapon();
-    }
-
     public void AimWeapon()
     {
         if (pInput.rmbPressed)
@@ -74,6 +55,14 @@ public class PlayerAimScript : MonoBehaviour
         }
     }
 
+    public void ReloadWeapon()
+    {
+        if(pInput.RPressed)
+        {
+            playerWeaponHolder.ReloadActiveWeapon();
+        }
+    }
+
     public void ChangeAimLayerWeight(float change)
     {
         aimLayer.weight += change;
@@ -86,5 +75,27 @@ public class PlayerAimScript : MonoBehaviour
         playerRigBuilder.Build();
         playerWeaponHolder.ResetHolsterPosition();
         //playerWeaponHolder.ActivateCurrWeapon();
+    }
+    void Start()
+    {
+        pInput = GetComponent<PlayerInputHandler>();
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        playerRigBuilder = GetComponent<RigBuilder>();
+        playerWeaponHolder = GetComponentInChildren<WeaponHolderScript>();
+    }
+
+
+    void Update()
+    {
+        SwitchWeapon();
+
+        AimWeapon();
+
+        ReloadWeapon();
+
+        FireWeapon();
+
     }
 }

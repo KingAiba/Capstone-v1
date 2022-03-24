@@ -71,7 +71,7 @@ public class WeaponRayCastScript : MonoBehaviour
         }*/
     }
 
-    public void UpdateBullets()
+    public virtual void UpdateBullets()
     {
         foreach(Bullet bullet in bulletLst)
         {
@@ -90,7 +90,7 @@ public class WeaponRayCastScript : MonoBehaviour
         bulletLst.RemoveAll(bullet => bullet.time >= bulletTTL);
     }
 
-    private void FireRayCastSegment(Vector3 start, Vector3 end, Bullet bullet)
+    protected virtual void FireRayCastSegment(Vector3 start, Vector3 end, Bullet bullet)
     {
         Vector3 dir = end - start;
 
@@ -116,7 +116,7 @@ public class WeaponRayCastScript : MonoBehaviour
         }
     }
 
-    private void FireBullet()
+    protected virtual void FireBullet()
     {
         muzzleFlash.Emit(1);
         bulletLst.Add(CreateBullet(muzzle.position, (rayCastDestination.position - muzzle.position).normalized * bulletSpeed));

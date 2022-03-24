@@ -14,6 +14,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool weaponSwitch = false;
 
+    public bool RPressed = false;
+
 
     void Start()
     {
@@ -28,11 +30,15 @@ public class PlayerInputHandler : MonoBehaviour
     public void GetInput()
     {
         inputVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
+
         spacePressed = Input.GetKeyDown(KeyCode.Space);
+
         rmbPressed = Input.GetKey(KeyCode.Mouse1);
         lmbPressed = Input.GetKey(KeyCode.Mouse0);
 
         weaponSwitch = Input.GetKeyDown(KeyCode.Alpha1);
+
+        RPressed = Input.GetKeyDown(KeyCode.R);
     }
 
 

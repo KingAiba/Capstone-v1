@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIHealthBar : MonoBehaviour
+public class UIHealthBar : FillUI
 {
     public Transform target;
     public Vector3 offset;
-
-    public Image foreground;
-    public Image background;
 
     public EnemyController owner;
 
@@ -23,7 +20,7 @@ public class UIHealthBar : MonoBehaviour
 
     }
 
-    public void UpdateHealthBarFill(float percent)
+    public override void UpdateFill(float percent)
     {
         float parentWidth = GetComponent<RectTransform>().rect.width;
         float newWidth = parentWidth * percent;
@@ -34,7 +31,7 @@ public class UIHealthBar : MonoBehaviour
     private void Start()
     {
         owner = GetComponentInParent<EnemyController>();
-        owner.OnDamage += UpdateHealthBarFill;
+        owner.OnDamage += UpdateFill;
     }
     private void LateUpdate()
     {
@@ -43,6 +40,6 @@ public class UIHealthBar : MonoBehaviour
 
     private void OnDestroy()
     {
-        owner.OnDamage -= UpdateHealthBarFill;
+        owner.OnDamage -= UpdateFill;
     }
 }

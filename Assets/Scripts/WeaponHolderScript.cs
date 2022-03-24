@@ -6,10 +6,10 @@ using UnityEngine.Animations.Rigging;
 public class WeaponHolderScript : MonoBehaviour
 {
     [SerializeField]
-    private List<WeaponRayCastScript> weaponList;
+    private List<Weapons> weaponList;
 
     public int currActiveWeapon = 0;
-    public WeaponRayCastScript activeWeapon = null;
+    public Weapons activeWeapon = null;
 
     public Vector3 defaultHolsterTransform;
     public Transform weaponHolster;
@@ -17,6 +17,9 @@ public class WeaponHolderScript : MonoBehaviour
 
     public TwoBoneIKConstraint rightHandIK;
     public TwoBoneIKConstraint leftHandIK;
+
+    public delegate void OnActiveWeaponReloadDelegate();
+    public OnActiveWeaponReloadDelegate OnActiveWeaponReload;
 
     void Start()
     {
@@ -32,9 +35,10 @@ public class WeaponHolderScript : MonoBehaviour
 
     public void GetAllWeapon()
     {
-        weaponList = new List<WeaponRayCastScript>(GetComponentsInChildren<WeaponRayCastScript>());
+        weaponList = new List<Weapons>(GetComponentsInChildren<Weapons>());
         //ChangeToNextWeapon();
         PickWeapon(0);
+        //ChangeToNextWeapon();
     }
 
     public void ChangeToNextWeapon()
@@ -48,8 +52,16 @@ public class WeaponHolderScript : MonoBehaviour
 
     public void PickWeapon(int pickedWeapon)
     {
+        if(activeWeapon != null)
+        {
+            activeWeapon.OnReload -= OnReloadCallBack;
+        }
+        
+
         currActiveWeapon = pickedWeapon;
-        activeWeapon = weaponList[pickedWeapon];    
+        activeWeapon = weaponList[pickedWeapon];
+
+        activeWeapon.OnReload += OnReloadCallBack;
     }
 
     public void ActivateCurrWeapon()
@@ -102,5 +114,19 @@ public class WeaponHolderScript : MonoBehaviour
         {
             weapon.UpdateBullets();
         }       
+    }
+
+    public void ReloadActiveWeapon()
+    {
+        activeWeapon.Reload();
+    }
+
+    public void OnReloadCallBack()
+    {
+        OnActiveWeaponReload?.Invoke();
+    }
+    public Weapons GetCurrentWeapon()
+    {
+        return activeWeapon;
     }
 }
