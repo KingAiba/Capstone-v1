@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Weapons : WeaponRayCastScript
 {
-    public float bulletDamage = 5f;
     public float bulletForce = 10f;
 
     public float reloadTime = 1f;

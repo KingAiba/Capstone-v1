@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AIWeapon : WeaponRayCastScript
 {
-    public float bulletDamage = 5f;
+    //public float bulletDamage = 5f;
     public float bulletForce = 10f;
 
     public override void OnEnemyHitProcedure(Collider hitCollider)
@@ -13,7 +13,7 @@ public class AIWeapon : WeaponRayCastScript
         if(hitCollider.CompareTag("Player"))
         {
             EntityManager player = hitCollider.GetComponent<EntityManager>();
-            player.TakeDamage(bulletDamage, this.ray.direction);
+            player.TakeDamage(this.bulletDamage, this.ray.direction);
         }
     }
 }

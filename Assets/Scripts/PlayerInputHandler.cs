@@ -17,6 +17,8 @@ public class PlayerInputHandler : MonoBehaviour
     public bool RPressed = false;
 
 
+    public bool isCharacterInputEnabled = true;
+
     void Start()
     {
         
@@ -24,21 +26,30 @@ public class PlayerInputHandler : MonoBehaviour
 
     void Update()
     {
-        GetInput();
+        GetCharacterInput();
     }
 
-    public void GetInput()
+    public void GetCharacterInput()
     {
-        inputVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
+        if(isCharacterInputEnabled)
+        {
+            inputVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
 
-        spacePressed = Input.GetKeyDown(KeyCode.Space);
+            spacePressed = Input.GetKeyDown(KeyCode.Space);
 
-        rmbPressed = Input.GetKey(KeyCode.Mouse1);
-        lmbPressed = Input.GetKey(KeyCode.Mouse0);
+            rmbPressed = Input.GetKey(KeyCode.Mouse1);
+            lmbPressed = Input.GetKey(KeyCode.Mouse0);
 
-        weaponSwitch = Input.GetKeyDown(KeyCode.Alpha1);
+            weaponSwitch = Input.GetKeyDown(KeyCode.Alpha1);
 
-        RPressed = Input.GetKeyDown(KeyCode.R);
+            RPressed = Input.GetKeyDown(KeyCode.R);
+        }
+
+    }
+
+    public void ChangeCharacterInputEnabled(bool isEnabled)
+    {
+        isCharacterInputEnabled = isEnabled;
     }
 
 

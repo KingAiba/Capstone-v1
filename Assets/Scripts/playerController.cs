@@ -35,7 +35,10 @@ public class playerController : EntityManager
     protected override void Start()
     {
         base.Start();
+
         pInputHandler = GetComponent<PlayerInputHandler>();
+        pInputHandler.ChangeCharacterInputEnabled(true);
+
         playerRB = GetComponent<Rigidbody>();
     }
 
@@ -93,5 +96,26 @@ public class playerController : EntityManager
         isRolling = true;
         yield return new WaitForSeconds(rollTimer);
         isRolling = false;
+    }
+
+    public override void TakeDamage(float val, Vector3 dir)
+    {
+        if(!isRolling)
+        {
+            base.TakeDamage(val, dir);
+        }
+        
+    }
+
+    public void DisableMovementOnDeath()
+    {
+        pInputHandler.ChangeCharacterInputEnabled(false);
+    }
+
+    public override void Die()
+    {
+        base.Die();
+        DisableMovementOnDeath();
+        moveDirection = new Vector3(0, 0, 0);
     }
 }

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemyRagdollHandler : MonoBehaviour
 {
-    Rigidbody[] ragdollRBs;
-    Animator animator;
-    EntityManager enemyManager;
+    protected Rigidbody[] ragdollRBs;
+    protected Animator animator;
+    protected EntityManager entityManager;
 
     public bool isRagDollActivated = false;
 
-    public void DeactivateRagdoll()
+    public virtual void DeactivateRagdoll()
     {
         foreach(Rigidbody rb in ragdollRBs)
         {
@@ -20,7 +20,7 @@ public class EnemyRagdollHandler : MonoBehaviour
         isRagDollActivated = false;
     }
 
-    public void ActivateRagdoll()
+    public virtual void ActivateRagdoll()
     {
         foreach (Rigidbody rb in ragdollRBs)
         {
@@ -30,22 +30,22 @@ public class EnemyRagdollHandler : MonoBehaviour
         isRagDollActivated = true;
     }
 
-    public void AttachHitBoxComponent()
+    public virtual void AttachHitBoxComponent()
     {
         foreach(Rigidbody rb in ragdollRBs)
         {
             HitBox hitbox = rb.gameObject.AddComponent<HitBox>();
-            hitbox.entityManager = enemyManager;
+            hitbox.entityManager = entityManager;
         }
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         ragdollRBs = GetComponentsInChildren<Rigidbody>();
         animator = GetComponent<Animator>();
-        enemyManager = GetComponent<EntityManager>();
+        entityManager = GetComponent<EntityManager>();
 
-        enemyManager.OnEntityDeath += ActivateRagdoll;
+        entityManager.OnEntityDeath += ActivateRagdoll;
         
         DeactivateRagdoll();
         AttachHitBoxComponent();

@@ -467,7 +467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - numOfEnemies: 4
+  - numOfEnemies: 2
     enemyPrefabs:
     - {fileID: 1466470082743683471, guid: 8340d2ac05eac3743976193fb88968c4, type: 3}
     spawnDelay: 1.5
@@ -1939,6 +1939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53e5a98006ebaf4b9e85ba391561e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prevRoom: {fileID: 0}
   currRoom: {fileID: 0}
   nextRoom: {fileID: 0}
   _mapGenerator: {fileID: 0}
@@ -2181,6 +2182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53e5a98006ebaf4b9e85ba391561e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prevRoom: {fileID: 0}
   currRoom: {fileID: 0}
   nextRoom: {fileID: 0}
   _mapGenerator: {fileID: 0}

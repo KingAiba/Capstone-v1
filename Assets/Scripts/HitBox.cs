@@ -6,7 +6,7 @@ public class HitBox : MonoBehaviour
 {
     public EntityManager entityManager;
 
-    public void OnRayCastHit(Weapons weapon, Vector3 dir)
+    public void OnRayCastHit(WeaponRayCastScript weapon, Vector3 dir)
     {
         entityManager.TakeDamage(weapon.bulletDamage, dir);
     }

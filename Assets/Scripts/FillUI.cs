@@ -18,6 +18,13 @@ public class FillUI : MonoBehaviour
         }
     }
 
+    public virtual void UpdateBarFill(float percent)
+    {
+        float parentWidth = GetComponent<RectTransform>().rect.width;
+        float newWidth = parentWidth * percent;
+        foreground.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, newWidth);
+    }
+
     private void DisableFillOnComplete()
     {
         gameObject.SetActive(false);

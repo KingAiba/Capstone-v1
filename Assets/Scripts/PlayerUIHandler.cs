@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerUIHandler : MonoBehaviour
 {
     public playerController player;
     public PlayerAimScript aimScript;
     public WeaponHolderScript playerWeaponHolder;
-    public FillUI reloadRadialFill; 
+
+    public FillUI reloadRadialFill;
+    public TextMeshProUGUI ammoText;
+    public FillUI playerHealth;
 
     public void EnableFill()
     {
@@ -26,6 +30,8 @@ public class PlayerUIHandler : MonoBehaviour
     private void LateUpdate()
     {
         reloadRadialFill.UpdateFill(playerWeaponHolder.GetCurrentWeapon().currReloadTimer / playerWeaponHolder.GetCurrentWeapon().reloadTime);
+        ammoText.SetText("" + playerWeaponHolder.activeWeapon.currMagAmount);
+        playerHealth.UpdateBarFill(player.currHealth / player.maxHealth);
     }
 
     private void OnDestroy()

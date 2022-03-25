@@ -24,8 +24,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58591060}
-  m_LocalRotation: {x: -0.13340482, y: 1e-45, z: -0, w: 0.9910616}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.13340485, y: -0.000000008526292, z: -0.0000000011477073,
+    w: 0.9910616}
+  m_LocalPosition: {x: 0, y: -0.00000014305115, z: 0.0000002861023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1323399409}
@@ -60,7 +61,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 41.99997
+    FieldOfView: 41.99998
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -283,8 +284,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170371547}
-  m_LocalRotation: {x: -0.15112932, y: -1e-45, z: -0, w: 0.988514}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.15112935, y: -0, z: -0, w: 0.988514}
+  m_LocalPosition: {x: 0, y: -0.00000014305115, z: 0.0000002861023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2103479678}
@@ -319,7 +320,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 41.99997
+    FieldOfView: 41.99998
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -406,8 +407,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439718133}
-  m_LocalRotation: {x: -0.13340484, y: 0.0000000019522164, z: -2.6278504e-10, w: 0.9910616}
-  m_LocalPosition: {x: 0, y: 1.1666666, z: -2.1666667}
+  m_LocalRotation: {x: -0.13340487, y: -0.000000008526288, z: -0.0000000011476693,
+    w: 0.9910616}
+  m_LocalPosition: {x: 0, y: 1.1666665, z: -2.1666663}
   m_LocalScale: {x: 0.83333325, y: 0.83333325, z: 0.83333325}
   m_Children:
   - {fileID: 157850913}
@@ -440,7 +442,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 41.99997
+  field of view: 41.99998
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -558,7 +560,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584622363}
-  m_LocalRotation: {x: -0.18944338, y: -0, z: 0, w: 0.9818917}
+  m_LocalRotation: {x: -0.18944335, y: -0, z: 0, w: 0.98189163}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -740,8 +742,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 776558778}
-  m_LocalRotation: {x: -0.1131565, y: -0.000000007402727, z: -8.430816e-10, w: 0.9935772}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.11315652, y: -0.0000000042739683, z: -4.867537e-10, w: 0.9935772}
+  m_LocalPosition: {x: 0, y: -0.0000002861023, z: 0.0000005722046}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1772167154}
@@ -776,7 +778,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 41.99997
+    FieldOfView: 41.99998
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1553,7 +1555,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696864559}
-  m_LocalRotation: {x: -0.15598337, y: -0.0021910516, z: -0.00034600368, w: 0.98775727}
+  m_LocalRotation: {x: -0.15598354, y: -0.0021910514, z: -0.00034600403, w: 0.98775715}
   m_LocalPosition: {x: 0.061, y: 1.12, z: 0.157}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2012,7 +2014,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1967344903}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.1666666, z: -2.1666667}
+  m_LocalPosition: {x: 0, y: 1.1666665, z: -2.1666663}
   m_LocalScale: {x: 0.83333325, y: 0.83333325, z: 0.83333325}
   m_Children:
   - {fileID: 776558780}
@@ -2043,7 +2045,7 @@ MonoBehaviour:
   m_Follow: {fileID: 9133734082226003176}
   m_CommonLens: 1
   m_Lens:
-    FieldOfView: 41.99997
+    FieldOfView: 41.99998
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -4812,6 +4814,8 @@ MonoBehaviour:
   rmbPressed: 0
   lmbPressed: 0
   weaponSwitch: 0
+  RPressed: 0
+  isCharacterInputEnabled: 1
 --- !u!114 &6471585127121929781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4855,7 +4859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aimLayer: {fileID: 1696697439}
   aimSpeed: 4
-  playerWeaponHolder: {fileID: 0}
+  playerWeaponHolder: {fileID: 2940316573445949715}
   playerRigBuilder: {fileID: 0}
   HandIKLayer: {fileID: 284423688}
 --- !u!114 &1952088809221859228
@@ -5136,7 +5140,27 @@ PrefabInstance:
     - target: {fileID: 2110663037148893651, guid: c3df98e72d916c546bc30b6d030d7916,
         type: 3}
       propertyPath: bulletDrop
-      value: 0.1
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110663037148893651, guid: c3df98e72d916c546bc30b6d030d7916,
+        type: 3}
+      propertyPath: reloadTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110663037148893651, guid: c3df98e72d916c546bc30b6d030d7916,
+        type: 3}
+      propertyPath: bulletForce
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110663037148893651, guid: c3df98e72d916c546bc30b6d030d7916,
+        type: 3}
+      propertyPath: bulletSpeed
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110663037148893651, guid: c3df98e72d916c546bc30b6d030d7916,
+        type: 3}
+      propertyPath: bulletDamage
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2110663037148893651, guid: c3df98e72d916c546bc30b6d030d7916,
         type: 3}
@@ -5425,6 +5449,41 @@ PrefabInstance:
       propertyPath: rayCastDestination
       value: 
       objectReference: {fileID: 1940748571}
+    - target: {fileID: 8726750290889722110, guid: 19910fc342ecfa54bbff49385a8ef968,
+        type: 3}
+      propertyPath: fireRate
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8726750290889722110, guid: 19910fc342ecfa54bbff49385a8ef968,
+        type: 3}
+      propertyPath: maxMagSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8726750290889722110, guid: 19910fc342ecfa54bbff49385a8ef968,
+        type: 3}
+      propertyPath: reloadTime
+      value: 2.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8726750290889722110, guid: 19910fc342ecfa54bbff49385a8ef968,
+        type: 3}
+      propertyPath: bulletForce
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 8726750290889722110, guid: 19910fc342ecfa54bbff49385a8ef968,
+        type: 3}
+      propertyPath: bulletSpeed
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 8726750290889722110, guid: 19910fc342ecfa54bbff49385a8ef968,
+        type: 3}
+      propertyPath: bulletDamage
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8726750290889722110, guid: 19910fc342ecfa54bbff49385a8ef968,
+        type: 3}
+      propertyPath: currMagAmount
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8726750290889722110, guid: 19910fc342ecfa54bbff49385a8ef968,
         type: 3}
       propertyPath: rayCastDestination

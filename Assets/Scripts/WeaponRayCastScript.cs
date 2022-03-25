@@ -10,6 +10,7 @@ public enum WeaponType
 
 public class WeaponRayCastScript : MonoBehaviour
 {
+    public float bulletDamage = 5f;
     public float fireRate = 25;
     public float bulletSpeed = 100f;
     public float bulletDrop = 0.0f;

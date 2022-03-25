@@ -16,6 +16,7 @@ public class PlayerAnimationHandler : MonoBehaviour
         playerController = GetComponent<playerController>();
 
         playerController.OnRoll += PlayRollAnim;
+        playerController.OnEntityDeath += PlayDeathAnim;
         
     }
 
@@ -30,6 +31,12 @@ public class PlayerAnimationHandler : MonoBehaviour
         PlayMovementAnim(playerController.pInputHandler.inputVector);
     }
 
+    private void OnDestroy()
+    {
+        playerController.OnRoll -= PlayRollAnim;
+        playerController.OnEntityDeath -= PlayDeathAnim;
+    }
+
     public void PlayMovementAnim(Vector3 inputVector)
     {
         //playerMovementBlendSpeed = curSpeed / maxSpeed;
@@ -40,5 +47,10 @@ public class PlayerAnimationHandler : MonoBehaviour
     public void PlayRollAnim()
     {
         playerAnim.SetTrigger("doRoll");
+    }
+
+    public void PlayDeathAnim()
+    {
+        playerAnim.SetBool("isDead", true);
     }
 }
