@@ -9,7 +9,7 @@ public class WeaponAudioManager : MonoBehaviour
     public AudioClip shootAudio;
     public AudioClip reloadAudio;
 
-    public Weapons weapon;
+    public WeaponRayCastScript weapon;
 
 
     public void PlayShootAudio()
@@ -27,7 +27,7 @@ public class WeaponAudioManager : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        weapon = GetComponent<Weapons>();
+        weapon = GetComponent<WeaponRayCastScript>();
 
         weapon.OnWeaponShoot += PlayShootAudio;
         weapon.OnReload += PlayReloadAudio;

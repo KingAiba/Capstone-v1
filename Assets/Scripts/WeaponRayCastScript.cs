@@ -42,6 +42,9 @@ public class WeaponRayCastScript : MonoBehaviour
     public delegate void OnWeaponShootDelegate();
     public OnWeaponShootDelegate OnWeaponShoot;
 
+    public delegate void OnReloadDelegate();
+    public OnReloadDelegate OnReload;
+
     public Bullet CreateBullet(Vector3 position, Vector3 velocity)
     {
         Bullet bullet = new Bullet(position, velocity, Instantiate(tracerEffect, position, Quaternion.identity));
@@ -63,7 +66,6 @@ public class WeaponRayCastScript : MonoBehaviour
         if(canFire)
         {
             FireBullet();
-            OnWeaponShoot?.Invoke();
             StartCoroutine(FireCooldownRoutine());
         }
 /*        fireTime += deltatime;
@@ -125,21 +127,22 @@ public class WeaponRayCastScript : MonoBehaviour
     {
         muzzleFlash.Emit(1);
         bulletLst.Add(CreateBullet(muzzle.position, (rayCastDestination.position - muzzle.position).normalized * bulletSpeed));
-/*        ray.origin = muzzle.position;
-        ray.direction = rayCastDestination.position - muzzle.position;
+        OnWeaponShoot?.Invoke();
+        /*        ray.origin = muzzle.position;
+                ray.direction = rayCastDestination.position - muzzle.position;
 
-        TrailRenderer tracer = Instantiate(tracerEffect, ray.origin, Quaternion.identity);
-        tracer.AddPosition(ray.origin);
+                TrailRenderer tracer = Instantiate(tracerEffect, ray.origin, Quaternion.identity);
+                tracer.AddPosition(ray.origin);
 
-        if (Physics.Raycast(ray, out hitInfo))
-        {
-            //Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 1.0f);
-            hiteffect.transform.position = hitInfo.point;
-            hiteffect.transform.forward = hitInfo.normal;
-            hiteffect.Emit(1);
-            //Debug.Log(hiteffect.transform.position);
-            tracer.transform.position = hitInfo.point;
-        }*/
+                if (Physics.Raycast(ray, out hitInfo))
+                {
+                    //Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 1.0f);
+                    hiteffect.transform.position = hitInfo.point;
+                    hiteffect.transform.forward = hitInfo.normal;
+                    hiteffect.Emit(1);
+                    //Debug.Log(hiteffect.transform.position);
+                    tracer.transform.position = hitInfo.point;
+                }*/
     }
 
     public void StopFiring()

@@ -39,6 +39,7 @@ public class Weapons : WeaponRayCastScript
         if(!isReloading)
         {
             currMagAmount--;
+            Debug.Log("HERE");
             base.FireBullet();
 
             if (currMagAmount <= 0)
@@ -52,8 +53,12 @@ public class Weapons : WeaponRayCastScript
 
     public virtual void Reload()
     {
-        isReloading = true;
-        OnReload?.Invoke();
+        if(!isReloading)
+        {
+            isReloading = true;
+            OnReload?.Invoke();
+        }
+
     }
     public virtual void ReloadUpdate()
     {
