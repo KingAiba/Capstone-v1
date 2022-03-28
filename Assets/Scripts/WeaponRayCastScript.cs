@@ -39,6 +39,9 @@ public class WeaponRayCastScript : MonoBehaviour
 
     public LayerMask rayCastLayer;
 
+    public delegate void OnWeaponShootDelegate();
+    public OnWeaponShootDelegate OnWeaponShoot;
+
     public Bullet CreateBullet(Vector3 position, Vector3 velocity)
     {
         Bullet bullet = new Bullet(position, velocity, Instantiate(tracerEffect, position, Quaternion.identity));
@@ -60,6 +63,7 @@ public class WeaponRayCastScript : MonoBehaviour
         if(canFire)
         {
             FireBullet();
+            OnWeaponShoot?.Invoke();
             StartCoroutine(FireCooldownRoutine());
         }
 /*        fireTime += deltatime;
