@@ -98,7 +98,7 @@ public class EnemyController : EntityManager
     {
         agentWeapon.UpdateBullets();
         enemyAnimHandler.PlayAgentMovement(enemyNavAgent.velocity.magnitude);
-        lookAtTarget.position = Vector3.Lerp(lookAtTarget.position, playerTarget.transform.position + new Vector3(0, 1f, 0), lookAtSpeed * Time.deltaTime);
+        lookAtTarget.position = Vector3.Lerp(lookAtTarget.position, playerTarget.transform.position + new Vector3(0, 1.5f, 0), lookAtSpeed * Time.deltaTime);
     }
 
     private void OnDestroy()

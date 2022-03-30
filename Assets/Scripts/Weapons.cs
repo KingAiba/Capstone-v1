@@ -14,8 +14,7 @@ public class Weapons : WeaponRayCastScript
 
     public bool isReloading = false;
 
-    public delegate void OnReloadDelegate();
-    public OnReloadDelegate OnReload;
+
 
     public override void OnEnemyHitProcedure(Collider hitCollider)
     {
@@ -39,7 +38,7 @@ public class Weapons : WeaponRayCastScript
         if(!isReloading)
         {
             currMagAmount--;
-            Debug.Log("HERE");
+            //Debug.Log("HERE");
             base.FireBullet();
 
             if (currMagAmount <= 0)

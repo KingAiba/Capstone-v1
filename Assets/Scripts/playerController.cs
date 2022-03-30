@@ -28,6 +28,8 @@ public class playerController : EntityManager
 
     public bool isSprinting = false;
 
+    public GameManager gameManager;
+
     public delegate void OnRollDelegate();
     public OnRollDelegate OnRoll;
 
@@ -40,6 +42,9 @@ public class playerController : EntityManager
         pInputHandler.ChangeCharacterInputEnabled(true);
 
         playerRB = GetComponent<Rigidbody>();
+
+        gameManager = GameManager.Instance;
+        OnEntityDeath += gameManager.CheckGameOver;
     }
 
 

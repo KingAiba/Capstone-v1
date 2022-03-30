@@ -27,8 +27,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
-        playerController.OnEntityDeath += CheckGameOver;
+        //playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
+        //playerController.OnEntityDeath += CheckGameOver;
     }
 
     private void Update()

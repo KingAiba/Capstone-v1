@@ -25,6 +25,14 @@ public class CrossHairTarget : MonoBehaviour
         if(Physics.Raycast(ray, out hitInfo))
         {
             transform.position = hitInfo.point;
+
+            float dir = Vector3.Dot((transform.position - player.transform.position).normalized, player.transform.forward);
+            if(dir < 0)
+            {
+                transform.position = player.transform.forward * maxRange;
+            }
+
+            
         }
         else
         {
